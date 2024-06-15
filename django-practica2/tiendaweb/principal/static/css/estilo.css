@@ -1,0 +1,406 @@
+body {
+    max-width: auto; /* Cambia el valor según tus necesidades */
+    margin: 0 0; /* Centra el contenido horizontalmente */
+    padding: 0 0px; /* Añade un espacio a los lados del contenido */
+}
+.carousel-slide .carousel-item {
+  transition: transform 0.2s ease;
+}
+
+.carousel-slide .carousel-item-next,
+.carousel-slide .carousel-item-prev,
+.carousel-slide .active.carousel-item {
+  display: block;
+}
+
+.carousel-slide .carousel-item-next.carousel-item-left,
+.carousel-slide .carousel-item-prev.carousel-item-right,
+.carousel-slide .carousel-item.active {
+  transform: translateX(0);
+}
+
+.carousel-slide .carousel-item-next,
+.carousel-slide .active.carousel-item-right {
+  transform: translateX(100%);
+}
+
+.carousel-slide .carousel-item-prev,
+.carousel-slide .active.carousel-item-left {
+  transform: translateX(-100%);
+}
+
+.custom-bg{
+	background: linear-gradient(to right,rgba(0, 71, 255, 1),rgba(99, 32, 32, 1));
+}
+/* Estilo para la sección de las categorías */
+.categorias {
+  background: black; 
+  padding: 80px 0; /* Aumentar el espacio interno superior e inferior */
+  
+}
+.btncate{
+	background: linear-gradient(to right,rgba(0, 71, 255, 1),rgba(99, 32, 32, 1));
+	color: white;
+	border: 1px solid white;
+	width: 80px;
+}
+.btnmapa{
+	border-radius: 4px;
+	width: 100%;
+	
+	
+}
+.categoria {
+  text-align: center; /* Centrar el contenido */
+}
+.categoriah3{
+  color: white;
+text-align: center;
+margin-top: -40px;
+margin-bottom: 40px;
+}
+
+.categorias-container {
+  border-radius: 20px;
+  color: aliceblue;
+  background: radial-gradient(rgba(44, 41, 173, 1), black);
+  max-width: 1920px; /* Ancho máximo del contenedor degradado */
+  height: 400px; /* Aumentar la altura del contenedor */
+  margin: 0 auto; /* Centrar el contenedor horizontalmente */
+  padding: 20px 10px; /* Espaciado interno a los lados y arriba/abajo del contenedor */
+}
+
+.imagen-container {
+  text-align: center; /* Centra la imagen horizontalmente */
+  margin-bottom: 15px; /* Espaciado inferior entre la imagen y el botón */
+}
+
+.categoria button {
+  border-radius: 10px;
+}
+.sectionmapa {
+	
+	background: black;
+	padding: 80px 0; /* Aumentar el espacio interno superior e inferior */
+	display: flex; /* Utilizamos flexbox */
+	justify-content: center; /* Centramos horizontalmente */
+	align-items: center; /* Centramos verticalmente */
+	border-top: 1px solid white;
+	border-bottom: 1px solid white;
+  }
+  .mapa {
+	border: 3px solid white;
+	border-radius: 30px;
+	background: linear-gradient(to left, rgba(0, 71, 255, 1), rgba(99, 32, 32, 1));
+	width: 100%; /* Porcentaje del ancho del contenedor padre */
+	max-width: 1200px; /* Ancho máximo del contenedor */
+	height: 500px; /* Ajustar la altura del contenedor */
+	margin: 0 auto; /* Centrar horizontalmente el contenedor */
+	padding: 20px; /* Espaciado interno alrededor del mapa */
+	display: flex; /* Utilizamos flexbox */
+	flex-direction: row-reverse; /* Invertimos la dirección de los elementos */
+	align-items: center; /* Centramos verticalmente */
+	justify-content: flex-start; /* Alinea los elementos hacia el inicio (izquierda) */
+  }
+  
+  
+  .card-img-top{
+	width: 200px;
+	
+  }
+  .texto {
+	color: white;
+	padding: 0 220px; /* Añadimos espacio entre la imagen y el texto */
+	 white-space: nowrap; /* Forzar el texto en una sola línea */
+	text-align: left; /* Alineamos el texto a la izquierda */
+  }
+  
+  .mapa img {
+	border: 2px solid black;
+	max-width: 100%; /* Ajustar imagen al ancho del contenedor */
+  }
+  
+  .containercard{
+	background-color: black;
+	text-align: center; /* Centrar el contenido */
+    margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	
+	border-bottom: 1px solid white;
+  }
+  .card{
+	
+	align-items: center; /* Centramos verticalmente */
+	background-color: black;
+	color: white;
+	
+  }
+.footer{
+	background-color: #F5F5F5;
+    padding: 70px 0;
+	
+}
+.footer a {
+    text-decoration: none; /* Elimina la línea subrayada */
+	color: #000;
+	transition: color 0.3s ease; /* Agrega una transición suave al cambio de color */
+}
+.footer a:hover {
+    color: blue; /* Cambia el color del texto al pasar el cursor por encima */
+}
+.icon-negro {
+    color: #000; /* Color negro */
+}
+
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #000000; /* Color del nombre de la columna*/
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63; /* Color de la linea del nombre de Columna */ 
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #0c0a0a; /* Color de la fila */ 
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #bbbbbb; /* Color del hover de fila */
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 768px) {
+	.categorias {
+	  padding: 40px 0; /* Reducir el espacio interno */
+	}
+  
+	.categoriah3 {
+	  margin-top: -20px; /* Reducir el espacio superior */
+	  margin-bottom: 20px; /* Reducir el espacio inferior */
+	}
+  
+	.categorias-container {
+	  height: auto; /* Permitir que la altura se ajuste automáticamente */
+	}
+  
+	.categoria {
+	  width: 100%; /* Ajustar el ancho de la categoría al 100% del contenedor */
+	}
+  }
+  /* Estilos para dispositivos móviles */
+@media only screen and (max-width: 768px) {
+	.footer-col {
+	  width: 100%; /* Ajustar el ancho de las columnas al 100% */
+	  margin-bottom: 30px; /* Añadir espacio entre las columnas */
+	}
+	
+	.footer-col h4::before {
+	  width: 30px; /* Reducir el ancho de la línea del nombre de la columna */
+	}
+  }
+/* Estilos para dispositivos móviles */
+@media only screen and (max-width: 768px) {
+	.mapa {
+	  flex-direction: column; /* Cambiar la dirección de los elementos a columna */
+	  align-items: stretch; /* Estirar los elementos verticalmente */
+	}
+	
+	.texto {
+	  padding: 0 20px; /* Reducir el espacio entre la imagen y el texto */
+	  text-align: center; /* Centrar el texto */
+	}
+  }
+/* Resetear estilos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*Estilo para productos*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+	
+}
+
+.producto {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	height: 400px;
+	
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    margin-bottom: 5px;
+}
+
+.producto p {
+    margin-bottom: 5px;
+}
+
+.producto input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.producto button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Estilos para los filtros */
+.filtros {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+	
+}
+
+.filtro {
+    margin-bottom: 15px;
+	
+}
+
+.filtro label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filtro select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+	
+}
+
+.filtro input[type="radio"] {
+    display: inline-block;
+    margin-right: 5px;
+	
+}
+
+.filtro div {
+    margin-bottom: 5px;
+}
+
+.filtro div:last-child {
+    margin-bottom: 0;
+}
+
+.boton-modal{
+  border-color: #007bff;
+  width: 100%;
+  border-radius: 4px;
+  
+}
+.terminos{
+  text-align: center;
+}
+/* Estilos para testimonios */
+.user {
+    display: inline-block;
+    width: 30%; /* Ajusta el ancho de cada usuario según tus preferencias */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: center;
+}
+
+.user img {
+    width: 100px; /* Ajusta el tamaño de la imagen del usuario */
+    border-radius: 50%; /* Hace que la imagen del usuario sea redonda */
+}
+#userContainer {
+    width: 80%; /* Ajusta el ancho del contenedor según tus preferencias */
+    margin: 0 auto; /* Establece los márgenes izquierdo y derecho a "auto" para centrar el contenedor */
+    text-align: center; /* Alinea el texto al centro dentro del contenedor */
+}
+.testimonial-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.user {
+    width: 300px; /* Ancho máximo de cada testimonio */
+    margin: 10px; /* Espacio entre testimonios */
+}
+
+@media screen and (max-width: 768px) {
+    .user {
+        width: calc(50% - 20px); /* Dos testimonios por fila en pantallas más estrechas */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .user {
+        width: calc(100% - 20px); /* Un testimonio por fila en pantallas pequeñas */
+    }
+}

@@ -1,0 +1,31 @@
+{% extends "plantillaBase.html" %}
+
+
+{% block body %}
+
+<form  method ="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+      <label for="usuario" class="form-label">Usuario</label>
+      <input type="name" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="correo" class="form-label">Correo Electronico</label>
+      <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password1">
+      <label for="exampleInputPassword1" class="form-label">Reingrese Contraseña</label>
+      <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
+      
+    </div>
+    <button type="submit" class="btn btn-primary"> Enviar </button>
+  </form>
+
+{% endblock  %}
+
+
+
+
+
