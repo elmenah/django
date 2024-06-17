@@ -8,18 +8,18 @@ from django.contrib import messages
 # Create your views here.
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'home.html')
 
 def registro(request):
     try:
-        if request.method == "POST":
+        if request.method == "POST": #Crear modelo de usuario cliente para almacenar fecha de nacimiento solo si es necesario
             usuario = request.POST.get("usuario")
             correo = request.POST.get("correo")
             password1 = request.POST.get("password1")
             password2 = request.POST.get("password2")
             if password1 == password2:
                 messages.success(request,'Usuario registrado correctamente')
-                user= User.objects.create_user(username=usuario,email=correo,password=password1)
+                user= User.objects.create_user(username=usuario,email=correo,password=password1)  
                 user.save()
                 print('Usuario guardado')
                 return redirect('login')
@@ -60,8 +60,9 @@ def cerrar_sesion(request):
     # Redirige a la página de inicio u otra página después de cerrar sesión
     return redirect('inicio')
 
-def autenticadovista(request):
- return render(request, 'home.html')
+def contact(request):
+    return render(request, 'contacto.html')
+
 
 
     
