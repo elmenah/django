@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib.auth import login,logout
 from django.http import HttpResponse
 from django.contrib import messages
+from .models import Cliente
 # Create your views here.
 
 def home(request):
@@ -13,14 +14,14 @@ def home(request):
 def registro(request):
     try:
         if request.method == "POST": #Crear modelo de usuario cliente para almacenar fecha de nacimiento solo si es necesario
-            usuario = request.POST.get("usuario")
+            usuario = request.POST.get("usuario")  #Agregar campo fecha nacimiento
             correo = request.POST.get("correo")
             password1 = request.POST.get("password1")
             password2 = request.POST.get("password2")
             if password1 == password2:
                 messages.success(request,'Usuario registrado correctamente')
-                user= User.objects.create_user(username=usuario,email=correo,password=password1)  
-                user.save()
+                cliente= Cliente.objects.create_user(username=usuario,email=correo,password=password1)  
+                cliente.save()
                 print('Usuario guardado')
                 return redirect('login')
             else:
