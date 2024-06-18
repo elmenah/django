@@ -6,10 +6,13 @@ from django.contrib.auth import login,logout
 from django.http import HttpResponse
 from django.contrib import messages
 from .models import Cliente
+
 # Create your views here.
 
 def home(request):
     return render(request, 'home.html')
+
+
 
 def registro(request):
     try:
@@ -18,11 +21,13 @@ def registro(request):
             correo = request.POST.get("correo")
             password1 = request.POST.get("password1")
             password2 = request.POST.get("password2")
+            fecha = request.POST.get("fecha")
             if password1 == password2:
                 messages.success(request,'Usuario registrado correctamente')
-                cliente= Cliente.objects.create_user(username=usuario,email=correo,password=password1)  
+                cliente= Cliente.objects.create_user(username=usuario,email=correo,password=password1,fecha_nacimiento=fecha)  
                 cliente.save()
                 print('Usuario guardado')
+               
                 return redirect('login')
             else:
                 return render(request,'registro.html',{'mensaje':'Contraseñas no coinciden'})
