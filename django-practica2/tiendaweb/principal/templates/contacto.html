@@ -18,9 +18,59 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
        
         <link rel="stylesheet" type="text/css" href="{% static 'css/estilo.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/csscontacto.css' %}">
+        
         
       </head>
 <body>
     {% include "navbarplantilla.html" %}
+    <!-- Imagen de contacto -->
+  <div style="background-color: black;">
+    <img src="{% static 'Imagenes/fondocontacto.png' %}" alt="">
+  </div>
+
+  <!-- Formulario -->
+  <section class="bg-light py-3 py-md-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <h2 class="mb-4 display-5 text-center"> ¡Comunicate <span style="color: b;">con</span> nosotros! </h2>
+          <p class="text-secondary mb-5 text-center"> Estamos para ayudarte en lo que necesites </p>
+          <hr class="w-50 mx-auto mb-5 mb-xl-9 border-dark-subtle">
+        </div>
+      </div>
+    </div>
+    <div class="formulario">
+      <form>
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" class="campo" name="nombre"><br>
+        <div id="mensajeNombre" class="errores"> Ingrese su nombre</div>
+
+        <label for="apellido">Apellido:</label><br>
+        <input type="text" id="apellido" class="campo" name="apellido" required><br>
+        <div id="mensajeApellido" class="errores"> Ingrese su apellido paterno</div>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" class="campo" name="email"><br>
+        <div id="mensajeEmail" class="errores"> Ingrese un email valido</div>
+
+        <label for="fono">Celular:</label><br>
+        <input type="tel" id="fono" class="campo" name="fono"><br>
+        <div id="mensajeFono" class="errores"> Ingrese un numero de celular valido</div>
+
+        <label for="mensaje">Mensaje:</label><br>
+        <textarea id="mensaje" class="texto" name="mensaje" rows="4"></textarea><br>
+        <div id="mensajeTexto" class="errores"> Escriba en el cuadro de texto su consulta</div>
+
+        <input type="submit" id="enviar" value="Enviar">
+      </form>
+    </div>
+  </section>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+  <script src="{% static 'js/contacto.js' %}"></script>
+  {% include "footer.html" %}
 </body>
 </html>

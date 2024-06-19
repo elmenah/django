@@ -1,0 +1,173 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+body{
+	line-height: 1.5;
+	font-family: 'Poppins', sans-serif;
+	
+}
+
+.errores {
+    display: none; /* Oculta los mensajes de error por defecto */
+	color: #e91e63;
+	padding-bottom: 5px;
+}
+
+*{
+	margin:0;
+	padding:0;
+	box-sizing: border-box;
+}
+.container{
+	max-width: 1170px;
+	margin:auto;
+}
+.row{
+	display: flex;
+	flex-wrap: wrap;
+}
+ul{
+	list-style: none;
+}
+.footer{
+	background-color: #F5F5F5;
+    padding: 70px 0;
+	
+}
+.footer a {
+    text-decoration: none; /* Elimina la línea subrayada */
+	color: #000;
+	transition: color 0.3s ease; /* Agrega una transición suave al cambio de color */
+}
+.footer a:hover {
+    color: blue; /* Cambia el color del texto al pasar el cursor por encima */
+}
+.icon-negro {
+    color: #000; /* Color negro */
+}
+
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #000000; /* Color del nombre de la columna*/
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63; /* Color de la linea del nombre de Columna */ 
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #0c0a0a; /* Color de la fila */ 
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #bbbbbb; /* Color del hover de fila */
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+.text-center p-3{
+	background-color: rgba(0, 0, 0, 0.05);
+
+}
+
+.formulario {
+    width: 50%; /* Ancho del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra alrededor del contenedor */
+}
+
+.container h2 {
+    text-align: center; /* Centra el título */
+}
+
+.container form {
+    margin-top: 20px; /* Espacio entre el título y el formulario */
+}
+
+.campo {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Tamaño total del elemento incluyendo el padding y el borde */
+}
+
+.texto {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Tamaño total del elemento incluyendo el padding y el borde */
+}
+
+#enviar {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#enviar:hover {
+    background-color: #45a049;
+}
+
+/* Color de anuncio */ 
+.custom-bg{ 
+	background: linear-gradient(to right,rgba(0, 71, 255, 1),rgba(99, 32, 32, 1));
+}
+
+/*responsive*/
+@media(max-width: 767px){
+  .footer-col{
+    width: 50%;
+    margin-bottom: 30px;
+}
+}
+@media(max-width: 574px){
+  .footer-col{
+    width: 100%;
+}
+}

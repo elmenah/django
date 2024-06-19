@@ -1,36 +1,63 @@
 {% load static %}
-{% include "navbarplantilla.html" %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style3.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <title>Regístrate en la Terraza</title>
+
+    <script src="{% static 'js/registro.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/registro.css' %}">
+
+</head>
+
+<body>
+    <form class="formulario" method="POST">
+        {% csrf_token %}
+        <h1>Regístrate en la Terraza</h1>
+        <div class="iconos">
+            <div class="border-icon">
+                <i class='bx bxl-instagram'></i>
+            </div>
+            <div class="border-icon">
+                <i class='bx bxl-twitter'></i>
+            </div>
+            <div class="border-icon">
+                <i class='bx bxl-facebook-circle'></i>
+            </div>
+        </div>
+        <div class="registro">
 
 
-{% block body %}
+            <input type="text" id="usuario" name="usuario" placeholder="Usuario" required>
+            <input type="email" id="correo" name="correo" placeholder="Email" required
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+            <input type="date" id="fecha" name="fecha" placeholder="Fecha de Nacimiento" required>
+            <input type="password" id="exampleInputPassword1" name="password1" placeholder="Contraseña" required>
+            <input type="password" id="exampleInputPassword2" name="password2" placeholder="Repetir Contraseña"
+                required>
+            {% if messages %}
+            {% for mensaje in messages%}
+            {{mensaje}}
+            {% endfor %}
+            {% endif %}
+            
+            <button type="submit" class="signup-btn" onclick="registrarCuenta()">Registrarse</button>
+        </div>
+        <div class="login-link">
+            <p>¿Ya tienes una cuenta? <button type="button" class="signup-btn"
+                    onclick="location.href='login.html'">Iniciar sesión</button></p>
+        </div>
+    </form>
 
-<form  method ="POST">
-    {% csrf_token %}
-    <div class="mb-3"><!-- Agregar campo para pedir fecha de nacimiento -->
-      <label for="usuario" class="form-label">Usuario</label>
-      <input type="name" class="form-control" id="usuario" name="usuario" aria-describedby="emailHelp">
+    <div class="Botilleria">
+        <div class="message">
+            <img src="imagenes/terraza__1_-removebg-preview.png" alt="logo_terraza">
+        </div>
     </div>
-    <div class="mb-3">
-      <label for="correo" class="form-label">Correo Electronico</label>
-      <input type="email" class="form-control" id="correo" name="correo" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3"><!-- Agregar campo para pedir fecha de nacimiento -->
-      <label for="usuario" class="form-label">Fecha de Nacimiento</label>
-      <input type="date" class="form-control" id="fecha" name="fecha" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" name="password1">
-      <label for="exampleInputPassword1" class="form-label">Reingrese Contraseña</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" name="password2">
-      
-    </div>
-    <button type="submit" class="btn btn-primary"> Enviar </button>
-  </form>
+</body>
 
-{% endblock  %}
-
-
-
-
-
+</html>
