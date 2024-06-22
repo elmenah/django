@@ -20,7 +20,11 @@
       <div class="col-md-3 col-sm-6"> <!-- Segunda columna -->
         <h4>Cuenta</h4>
         <ul>
+          {% if user.is_authenticated %}
           <li><a href="{% url 'perfil' %}"><i class="bi bi-person-square icon-negro"></i> Mi Cuenta</a></li>
+          {% else %}
+          <li><a href="{% url 'login' %}"><i class="bi bi-person-square icon-negro"></i> Mi Cuenta</a></li>
+          {% endif %} 
           <li><a href="{% url 'login' %}"><i class="bi bi-door-open icon-negro"></i> Iniciar Sesion</a></li>
         </ul>
       </div>
