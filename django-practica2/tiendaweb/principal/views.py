@@ -60,29 +60,33 @@ def registro(request):
         print(mensaje)
 
 def inicio_sesion(request):
-    try:
-        if request.method == "POST":
-            usuario = request.POST.get("usuariologin")
-            print(usuario)
-            contraseña = request.POST.get("password1login")
-            print(contraseña)
-            cliente = authenticate(request, username=usuario, password=contraseña)
-            print(cliente)
-            if cliente is not None:
-                messages.success(request,'Sesion iniciada correctamente')
-                login(request, cliente)
-                print('Sesion iniciada')
-                return redirect('inicio')
-            
-            else:
-                messages.error(request,'Usuario o contraseña invalidos')
-                return redirect('login')
-        elif request.method == 'GET':
-            return render(request, 'login.html')
-    except Exception as e:
-        print(e)
-        return render(request, 'login.html', {'mensaje': 'Se produjo un error al procesar su solicitud'})
+    if request.method == "POST":
+        usuario = request.POST.get("usuariologin")
+        contraseña = request.POST.get("password1login")
 
+        if not usuario or not contraseña:
+            messages.error(request, 'Debe proporcionar un nombre de usuario y una contraseña')
+            return redirect('login')
+
+        try:
+            cliente = authenticate(request, username=usuario, password=contraseña)
+            if cliente is not None:
+                login(request, cliente)
+                messages.success(request, 'Sesión iniciada correctamente')
+                return redirect('inicio')
+            else:
+                messages.error(request, 'Usuario o contraseña inválidos')
+                return redirect('login')
+        except Exception as e:
+            messages.error(request, f'Se produjo un error al procesar su solicitud: {str(e)}')
+            return redirect('login')
+    
+    elif request.method == 'GET':
+        return render(request, 'login.html')
+    
+    else:
+        messages.error(request, 'Método no permitido')
+        return redirect('login')
 
 def cerrar_sesion(request):
     logout(request)
@@ -92,6 +96,13 @@ def cerrar_sesion(request):
 def contact(request):
     return render(request, 'contacto.html')
 
+def perfilvista(request):
+    # Obtener el usuario autenticado actual
+    user = request.user  # Esto asume que estás usando el sistema de autenticación de Django
+    context = {
+        'user': user
+    }
+    return render(request, 'perfil.html', context)
 
 
     

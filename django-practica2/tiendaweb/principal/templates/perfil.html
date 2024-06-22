@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Perfil - La Terraza Chile</title>
+    <!-- Cargar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+    <!-- Navbar y cabecera -->
+    {% include "navbarplantilla.html" %}
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Mi Perfil</h2>
+                        <hr>
+                        <h4>Nombre de usuario: {{ user.username }}</h4>
+                        <h4>Correo electrónico: {{ user.email }}</h4>
+                        <!-- Formulario para cambiar contraseña -->
+                        <form method="post" >
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="id_password1" class="form-label">Nueva contraseña:</label>
+                                <input type="password" class="form-control" id="id_password1" name="password1">
+                            </div>
+                            <div class="mb-3">
+                                <label for="id_password2" class="form-label">Confirmar contraseña:</label>
+                                <input type="password" class="form-control" id="id_password2" name="password2">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+                        </form>
+                        <!-- Últimas compras -->
+                        <hr>
+                        <h3>Últimas compras</h3>
+                        <!-- Aquí puedes mostrar las últimas compras del usuario -->
+                        <ul>
+                            <li>Compra 1</li>
+                            <li>Compra 2</li>
+                            <li>Compra 3</li>
+                            <!-- Puedes iterar sobre las compras del usuario y mostrarlas aquí -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    {% include "footer.html" %}
+
+    <!-- Scripts de Bootstrap y otros -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-vtXRMe3mGCbOeY7l30aIg8H9p3GdeSe4IFlP6G8JMa7o7lXvnz3GFKzPxzJdPfGK" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>
