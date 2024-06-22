@@ -12,9 +12,6 @@ from datetime import datetime,date,timedelta
 # Create your views here.
 
 def home(request):
-    
-
-    
     return render(request, 'home.html')
 
 

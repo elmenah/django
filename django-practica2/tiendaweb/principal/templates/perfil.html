@@ -25,6 +25,7 @@
                         <h4>Nombre de usuario: {{ user.username }}</h4>
                         <h4>Correo electrónico: {{ user.email }}</h4>
                         <!-- Formulario para cambiar contraseña -->
+                        <!-- action="{% url 'cambiar_contrasena' %}" Agregar despues de POST -->
                         <form method="post" >
                             {% csrf_token %}
                             <div class="mb-3">
