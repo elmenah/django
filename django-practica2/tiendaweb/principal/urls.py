@@ -7,6 +7,8 @@ path('registro/',views.registro, name='registro'),
 path('login/',views.inicio_sesion, name='login'),
 path('cerrar_sesion/', views.cerrar_sesion, name='cerrar_sesion'),
 path('contacto/',views.contact, name='contacto'),
-path('perfil/',views.perfilvista, name='perfil')
-
+path('perfil/',views.perfilvista, name='perfil'),
+path('productos/', views.lista_productos, name='lista_productos'),
+path('add_producto/', views.add_producto, name='add_producto'),
+ path('delete_producto/<int:producto_id>/', views.delete_producto, name='delete_producto')
 ]

@@ -1,8 +1,9 @@
 body {
-    max-width: auto; /* Cambia el valor según tus necesidades */
-    margin: 0 0; /* Centra el contenido horizontalmente */
-    padding: 0 0px; /* Añade un espacio a los lados del contenido */
+  max-width: 100%; /* Ajusta según tus necesidades */
+  margin: 0; /* Asegura que no haya márgenes no deseados */
+  padding: 0; /* Asegura que no haya padding no deseado */
 }
+
 .carousel-slide .carousel-item {
   transition: transform 0.2s ease;
 }
@@ -123,7 +124,7 @@ margin-bottom: 40px;
   .containercard{
 	background-color: black;
 	text-align: center; /* Centrar el contenido */
-    margin: 0 auto;
+  margin: 0 auto;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	
@@ -252,66 +253,11 @@ margin-bottom: 40px;
 	  text-align: center; /* Centrar el texto */
 	}
   }
-/* Resetear estilos predeterminados */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  
 
 
-/*Estilo para productos*/
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-	padding-top: 20px;
-	padding-bottom: 20px;
-}
 
-.productos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-	
-}
 
-.producto {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-	height: 400px;
-	
-}
-
-.producto img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
-
-.producto h3 {
-    margin-bottom: 5px;
-}
-
-.producto p {
-    margin-bottom: 5px;
-}
-
-.producto input[type="number"] {
-    width: 60px;
-    padding: 5px;
-    margin-bottom: 5px;
-}
-
-.producto button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-}
 /* Estilos para los filtros */
 .filtros {
     background-color: #fff;

@@ -1,0 +1,24 @@
+<!-- principal/templates/principal/add_or_delete_producto.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if producto %}Editar{% else %}Añadir{% endif %} Producto</title>
+</head>
+<body>
+    <h1>{% if producto %}Editar{% else %}Añadir{% endif %} Producto</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+
+    {% if producto %}
+        <h2>Eliminar Producto</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ delete_form.as_p }}
+            <button type="submit" name="delete">Eliminar</button>
+        </form>
+    {% endif %}
+</body>
+</html>

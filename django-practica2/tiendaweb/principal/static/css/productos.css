@@ -1,0 +1,125 @@
+/* Resetear estilos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 90%; /* Ancho máximo del contenido */
+    margin: auto; /* Centra el contenido horizontalmente */
+}
+
+.filtros{
+    margin-top: 20px;
+
+}
+/* Estilos para los productos */
+.producto {
+    background-color: #fff; /* Fondo del contenedor del producto */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+    margin-bottom: 20px; /* Espacio entre productos */
+    padding: 20px; /* Espaciado interno */
+    margin-top: 20px;
+    text-align: center; /* Centra el contenido */
+    height: 400px;
+}
+
+
+.producto img {
+    width: 80%; /* Ancho máximo del contenedor */
+    height: 60%; /* Altura automática para mantener la proporción */
+    max-width: 100%; /* Máximo ancho de la imagen */
+    
+    object-fit: cover; /* Ajuste para cubrir el área asignada */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+    
+}
+
+.producto h3 {
+    font-size: 18px; /* Tamaño del título */
+    margin-top: 10px; /* Espacio superior */
+    margin-bottom: 5px; /* Espacio inferior */
+}
+
+.producto p {
+    font-size: 16px; /* Tamaño del texto */
+    margin-bottom: 5px; /* Espacio inferior */
+}
+
+.producto input[type="number"] {
+    width: 60px; /* Ancho del input de cantidad */
+    margin-right: 5px; /* Espacio a la derecha */
+}
+
+.producto button {
+    padding: 8px 15px; /* Padding del botón */
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #fff; /* Color del texto del botón */
+    border: none; /* Sin borde */
+    cursor: pointer; /* Cursor apuntador */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.producto button:hover {
+    background-color: #0056b3; /* Color de fondo del botón al pasar el cursor */
+}
+
+
+/* Media queries para dispositivos pequeños */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* Ajuste para dispositivos pequeños */
+    }
+
+    .producto {
+        padding: 15px; /* Reducción del padding */
+    }
+
+    .producto img {
+        height: 200px; /* Altura fija para dispositivos pequeños */
+    }
+
+    .producto h3 {
+        font-size: 16px; /* Tamaño del título para dispositivos pequeños */
+    }
+
+    .producto p {
+        font-size: 14px; /* Tamaño del texto para dispositivos pequeños */
+    }
+
+    .producto input[type="number"] {
+        width: 50px; /* Ancho del input de cantidad para dispositivos pequeños */
+    }
+
+    .producto button {
+        padding: 5px 10px; /* Padding del botón para dispositivos pequeños */
+        font-size: 14px; /* Tamaño del texto del botón para dispositivos pequeños */
+    }
+}
+
+/* Media queries para dispositivos extra pequeños */
+@media (max-width: 576px) {
+    .producto img {
+        height: 150px; /* Altura fija para dispositivos extra pequeños */
+    }
+
+    .producto h3 {
+        font-size: 14px; /* Tamaño del título para dispositivos extra pequeños */
+    }
+
+    .producto p {
+        font-size: 12px; /* Tamaño del texto para dispositivos extra pequeños */
+    }
+
+    .producto input[type="number"] {
+        width: 40px; /* Ancho del input de cantidad para dispositivos extra pequeños */
+    }
+
+    .producto button {
+        padding: 3px 8px; /* Padding del botón para dispositivos extra pequeños */
+        font-size: 12px; /* Tamaño del texto del botón para dispositivos extra pequeños */
+    }
+}

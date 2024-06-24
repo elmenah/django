@@ -1,12 +1,14 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render,HttpResponse,redirect,get_object_or_404
 from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate
 from django.contrib.auth import login,logout
 from django.http import HttpResponse
 from django.contrib import messages
-from .models import Cliente
+from .models import Cliente,Producto
 from datetime import datetime,date,timedelta
+
+from .forms import ProductoForm,DeleteProductoForm
 
 
 # Create your views here.
@@ -101,5 +103,34 @@ def perfilvista(request):
     }
     return render(request, 'perfil.html', context)
 
+def lista_productos(request):
+    productos = Producto.objects.all()
+    return render(request, 'producto.html', {'productos': productos})
 
+
+def add_producto(request):
+    if request.method == "POST":
+        form = ProductoForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('lista_productos')  # Redirige a una vista que liste los productos, cambia esto según tu configuración
+    else:
+        form = ProductoForm()
     
+    return render(request, 'add_producto.html', {'form': form})
+
+def delete_producto(request, producto_id):
+    producto = get_object_or_404(Producto, id=producto_id)
+    
+    if request.method == "POST":
+        delete_form = DeleteProductoForm(request.POST)
+        if delete_form.is_valid() and delete_form.cleaned_data['confirm']:
+            producto.delete()
+            return redirect('lista_productos')  # Redirige a la lista de productos después de eliminar uno
+    else:
+        delete_form = DeleteProductoForm()
+    
+    return render(request, 'delete_producto.html', {
+        'delete_form': delete_form,
+        'producto': producto
+    })

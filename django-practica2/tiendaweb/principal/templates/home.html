@@ -71,7 +71,7 @@
               <a class="nav-link active" aria-current="page" href="{% url 'inicio' %}">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/Productos/Productos.html">Todos los productos</a>
+              <a class="nav-link active" aria-current="page" href="{% url 'lista_productos' %}">Todos los productos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="/Ofertas/ofertas.html">Ofertas</a>
@@ -185,7 +185,7 @@
               
             </p>
             <p>
-              <a href="/Productos/Productos.html" class="btn btn-primary mt-3">Ver Todos</a>
+              <a href="{% url 'lista_productos' %}" class="btn btn-primary mt-3">Ver Todos</a>
             </p>
           </div>
         </div>
@@ -262,7 +262,7 @@
               
               <h5 class="card-title">Desde 1995</h5>
               <p class="card-text">Llevamos más de 25 años en el rubro, llevando los mejores licores a todo el país.</p>
-              <a href="/Productos/Productos.html" class="btn btn-primary">Conoce nuestros productos</a>
+              <a href="{% url 'lista_productos' %}" class="btn btn-primary">Conoce nuestros productos</a>
               
             </div>
           </div>

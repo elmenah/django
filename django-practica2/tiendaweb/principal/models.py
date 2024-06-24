@@ -1,4 +1,4 @@
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
 
 class ClienteManager(BaseUserManager):
@@ -17,9 +17,9 @@ class ClienteManager(BaseUserManager):
 
         return self.create_user(username, email, password, fecha_nacimiento, **extra_fields)
 
-class Cliente(AbstractBaseUser):
+class Cliente(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(max_length=150, unique=True)
-    email = models.EmailField(unique=True, default='')  # Aquí se define un valor predeterminado vacío ('') para el campo email
+    email = models.EmailField(unique=True, default='')  
     fecha_nacimiento = models.DateField(null=True, blank=True)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
@@ -33,10 +33,29 @@ class Cliente(AbstractBaseUser):
     def __str__(self):
         return self.username
 
-    @property
-    def is_superuser(self):
+    def has_perm(self, perm, obj=None):
+        # Si el usuario es superusuario, tiene todos los permisos
+        if self.is_superuser:
+            return True
+        
         return self.is_staff
 
-    @property
-    def is_staff(self):
+    def has_module_perms(self, app_label):
+        # Si el usuario es superusuario, tiene permisos para todas las aplicaciones
+        if self.is_superuser:
+            return True
+        
         return self.is_staff
+    
+
+
+class Producto(models.Model):
+    
+    nombre = models.CharField(max_length=100)
+    imagen = models.ImageField(upload_to='productos/', blank=True, null=True)
+    precio = models.DecimalField(max_digits=10, decimal_places=2)
+    stock = models.PositiveIntegerField()
+    descripcion = models.TextField(default='')
+
+    def __str__(self):
+        return self.nombre

@@ -1,0 +1,16 @@
+<!-- principal/templates/principal/delete_producto.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar Producto</title>
+</head>
+<body>
+    <h1>Eliminar Producto: {{ producto.nombre }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ delete_form.as_p }}
+        <button type="submit">Eliminar</button>
+    </form>
+    <a href="{% url 'lista_productos' %}">Cancelar</a>
+</body>
+</html>
