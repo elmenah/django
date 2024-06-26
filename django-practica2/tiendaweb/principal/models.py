@@ -59,3 +59,14 @@ class Producto(models.Model):
 
     def __str__(self):
         return self.nombre
+    
+class Pedidos(models.Model):
+    
+    nombreCliente = models.CharField(max_length=100)
+    Productos = models.CharField(max_length=100)
+    Total = models.DecimalField(max_digits=10, decimal_places=2)
+    Direccion = models.CharField(max_length=100)
+    
+
+    def __str__(self):
+        return self.nombreCliente

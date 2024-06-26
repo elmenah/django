@@ -35,7 +35,7 @@ def registro(request):
             fecha_mayor_edad = fechahoy - timedelta(days=365*18)
              # Validar que la fecha de nacimiento sea menor que la fecha mínima
             if fechanacimiento > fecha_mayor_edad:
-                messages.error(request, 'Debes ser mayor de 18 años para registrarte.')
+                messages.error(request, 'Debes ser mayor de 18 años para registrarte.')                                     
                 return render(request, 'registro.html')
 
             

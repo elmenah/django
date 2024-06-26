@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <form class="formulario" method="POST">
+    <form class="formulario" method="POST" >
         {% csrf_token %}
         <h1>Regístrate en la Terraza</h1>
         <div class="iconos">
@@ -48,16 +48,12 @@
             <button type="submit" class="signup-btn" onclick="registrarCuenta()">Registrarse</button>
         </div>
         <div class="login-link">
-            <p>¿Ya tienes una cuenta? <button type="button" class="signup-btn"
-                    onclick="location.href='login.html'">Iniciar sesión</button></p>
-        </div>
+            <br>
+            <p>¿Ya tienes una cuenta?</p>
+                <a href="{% url 'login' %}" class="btn btn-primary">Login</a>
     </form>
 
-    <div class="Botilleria">
-        <div class="message">
-            <img src="imagenes/terraza__1_-removebg-preview.png" alt="logo_terraza">
-        </div>
-    </div>
+    
 </body>
 
 </html>
