@@ -137,6 +137,10 @@ margin-bottom: 40px;
 	color: white;
 	
   }
+.custom-card-bg{
+	background-color:steelblue;
+	margin-bottom: 60px;
+}
 .footer{
 	background-color: #F5F5F5;
     padding: 70px 0;

@@ -7,6 +7,6 @@ class ProductoForm(forms.ModelForm):
         model = Producto
         fields = ['nombre', 'imagen', 'precio', 'stock', 'descripcion']
 
-# principal/forms.py (continuación)
+
 class DeleteProductoForm(forms.Form):
     confirm = forms.BooleanField(label="Confirmar eliminación")

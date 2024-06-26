@@ -7,6 +7,7 @@ from django.http import HttpResponse
 from django.contrib import messages
 from .models import Cliente,Producto
 from datetime import datetime,date,timedelta
+from django.contrib.auth.decorators import login_required
 
 from .forms import ProductoForm,DeleteProductoForm
 
@@ -92,28 +93,30 @@ def cerrar_sesion(request):
     # Redirige a la página de inicio u otra página después de cerrar sesión
     return redirect('inicio')
 
-def contact(request):
+def contact(request): #Vista Contacto
     return render(request, 'contacto.html')
 
-def perfilvista(request):
-    # Obtener el usuario autenticado actual
-    user = request.user  # Esto asume que estás usando el sistema de autenticación de Django
-    context = {
-        'user': user
-    }
-    return render(request, 'perfil.html', context)
 
-def lista_productos(request):
+def perfilvista(request):
+    user = request.user  # Hace un request del usuario actual
+
+    if request.method == "POST":
+        user.delete()
+        return redirect('inicio')
+    else:
+        return render(request, 'perfil.html', {'user': user})   
+
+def lista_productos(request):#Vista que llega a la pagina producto donde obtiene todos los productos en la variable productos
     productos = Producto.objects.all()
     return render(request, 'producto.html', {'productos': productos})
 
 
 def add_producto(request):
     if request.method == "POST":
-        form = ProductoForm(request.POST, request.FILES)
+        form = ProductoForm(request.POST, request.FILES)#La vista add producto va a mostrar el formulario ProductoForm
         if form.is_valid():
             form.save()
-            return redirect('lista_productos')  # Redirige a una vista que liste los productos, cambia esto según tu configuración
+            return redirect('lista_productos')  # Redirige a una vista que liste los productos
     else:
         form = ProductoForm()
     

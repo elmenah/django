@@ -1,24 +1,31 @@
-<!-- principal/templates/principal/add_or_delete_producto.html -->
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% if producto %}Editar{% else %}Añadir{% endif %} Producto</title>
+    <title>Añadir Producto</title>
 </head>
+<style>
+    .form-container{
+    max-width: 400px; /* Ajusta el ancho según sea necesario */
+    margin: 0 auto; /* Centra el formulario horizontalmente */
+    color: aliceblue;
+  }
+  h1{
+    text-align: center;
+    color: aliceblue;
+  }
+  body{
+    background: linear-gradient(to right,rgba(0, 71, 255, 1),rgba(99, 32, 32, 1));
+  }
+</style>
 <body>
-    <h1>{% if producto %}Editar{% else %}Añadir{% endif %} Producto</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
+    <h1>Añadir Producto</h1>
+    <form method="post" enctype="multipart/form-data" class="form-container">
+        {% csrf_token %} 
         {{ form.as_p }}
         <button type="submit">Guardar</button>
     </form>
 
-    {% if producto %}
-        <h2>Eliminar Producto</h2>
-        <form method="post">
-            {% csrf_token %}
-            {{ delete_form.as_p }}
-            <button type="submit" name="delete">Eliminar</button>
-        </form>
-    {% endif %}
+
 </body>
 </html>

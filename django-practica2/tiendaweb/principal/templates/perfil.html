@@ -8,7 +8,11 @@
     <!-- Cargar CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+    
+    
+    <style>
+        
+    </style>
 </head>
 <body>
     <!-- Navbar y cabecera -->
@@ -18,29 +22,25 @@
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card custom-card-bg"> <!-- Se aplica un color especifico -->
+                    <div class="card-body"> 
                         <h2 class="card-title">Mi Perfil</h2>
                         <hr>
                         <h4>Nombre de usuario: {{ user.username }}</h4>
                         <h4>Correo electrónico: {{ user.email }}</h4>
-                        <!-- Formulario para cambiar contraseña -->
-                        
-                        <form method="post" >
+                        <h4>Fecha Nacimiento: {{ user.fecha_nacimiento }}</h4>
+
+                        <form method="post">
                             {% csrf_token %}
-                            
-                            <button type="submit" class="btn btn-primary">Cambiar contraseña</button>
+                            <hr>
+                            {% if user.is_authenticated %}
+                            <button type="submit" class="btn btn-primary">Eliminar mi cuenta</button>
+                            {% else %}
+                            <a type="text" class="btn btn-secondary" href="{% url 'login' %}"> Para ver y eliminar tu cuenta primero debes loguearte </a>
+                            {% endif %}
+
+
                         </form>
-                        <!-- Últimas compras -->
-                        <hr>
-                        <h3>Últimas compras</h3>
-                        <!-- Aquí puedes mostrar las últimas compras del usuario -->
-                        <ul>
-                            <li>Compra 1</li>
-                            <li>Compra 2</li>
-                            <li>Compra 3</li>
-                            <!-- Puedes iterar sobre las compras del usuario y mostrarlas aquí -->
-                        </ul>
                     </div>
                 </div>
             </div>

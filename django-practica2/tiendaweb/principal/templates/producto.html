@@ -20,7 +20,7 @@
             <div class="col-md-3">
                 <div class="filtros">
                     <h2>Filtrar</h2>
-                    <!-- Filtros existentes -->
+                    <!-- Agregar filtro con JS -->
                 </div>
             </div>
 
@@ -35,7 +35,10 @@
                                 <p>Stock: {{ producto.stock }}</p>
                                 <label for="cantidad{{ producto.id }}">Cantidad:</label>
                                 <input type="number" id="cantidad{{ producto.id }}" name="cantidad{{ producto.id }}" value="1" min="1" />
+                                {% if user.is_authenticated %}
                                 <button type="button">Comprar</button>
+                                {% else %}
+                                {% endif %}
                             </div>
                         </div>
                     {% endfor %}
