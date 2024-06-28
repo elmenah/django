@@ -18,7 +18,7 @@
         <div class="container-fluid justify-content-center">
             <h5 class="text-white text-center">
                 Envios gratis por compras sobre $45.000
-                <br> Bievenido {{ user.username }}
+                <br> Bienvenido {{ user.username }}
             </h5>
         </div>
     
@@ -79,7 +79,7 @@
         <!-- Funcionalidad de el carrito con IF -->
         {% if user.is_authenticated %}
         
-      <a href="/Carrito/carrito.html" style="color: black;"">
+      <a href="{% url 'carro' %}" style="color: black;"">
         <span class="me-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"

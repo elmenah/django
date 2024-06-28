@@ -12,7 +12,8 @@
 }
 
 .filtros{
-    margin-top: 20px;
+    margin-top: 60px;
+    
 
 }
 /* Estilos para los productos */
@@ -22,7 +23,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra ligera */
     margin-bottom: 20px; /* Espacio entre productos */
     padding: 20px; /* Espaciado interno */
-    margin-top: 20px;
+    margin-top: 60px;
+    margin-bottom: 40px;
     text-align: center; /* Centra el contenido */
     height: 400px;
 }

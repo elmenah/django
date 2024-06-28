@@ -41,15 +41,16 @@
     <br>
     <p class="cuenta-gratis">¿No tienes una cuenta?</p>
     <a class="btn btn-primary" href="{% url 'registro' %}">Regístrate</a>
-  </div>
-</div>
-
-{% if messages %}
+    {% if messages %}
   {% for mensaje in messages %}
     <div class="alert alert-info" role="alert">
       {{ mensaje }}
     </div>
   {% endfor %}
 {% endif %}
+  </div>
+</div>
+
+
 
 {% endblock %}

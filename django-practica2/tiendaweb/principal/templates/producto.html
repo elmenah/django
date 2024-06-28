@@ -36,8 +36,9 @@
                                 <label for="cantidad{{ producto.id }}">Cantidad:</label>
                                 <input type="number" id="cantidad{{ producto.id }}" name="cantidad{{ producto.id }}" value="1" min="1" />
                                 {% if user.is_authenticated %}
-                                <button type="button">Comprar</button>
+                                <button type="button" class="btn-comprar" data-id="{{ producto.id }}" data-nombre="{{ producto.nombre }}" data-precio="{{ producto.precio }}">Comprar</button>
                                 {% else %}
+                                <p>Inicia sesión para comprar</p>
                                 {% endif %}
                             </div>
                         </div>
@@ -51,6 +52,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="{% static 'js/productos.js' %}"></script>
    
 </body>
 </html>

@@ -9,7 +9,7 @@ from .models import Cliente,Producto
 from datetime import datetime,date,timedelta
 from django.contrib.auth.decorators import login_required
 
-from .forms import ProductoForm,DeleteProductoForm
+from .forms import ProductoForm,DeleteProductoForm, ActualizarNombreUsuarioForm
 
 
 # Create your views here.
@@ -69,9 +69,17 @@ def inicio_sesion(request):
             return redirect('login')
 
         try:
-            cliente = authenticate(request, username=usuario, password=contraseña)
-            if cliente is not None:
-                login(request, cliente)
+            # Verificar si el usuario existe
+            try:
+                cliente = Cliente.objects.get(username=usuario)
+            except Cliente.DoesNotExist:
+                messages.error(request, 'El usuario no existe')
+                return redirect('login')
+
+            # Intentar autenticar al usuario
+            cliente_autenticado = authenticate(request, username=usuario, password=contraseña)
+            if cliente_autenticado is not None:
+                login(request, cliente_autenticado)
                 messages.success(request, 'Sesión iniciada correctamente')
                 return redirect('inicio')
             else:
@@ -80,10 +88,10 @@ def inicio_sesion(request):
         except Exception as e:
             messages.error(request, f'Se produjo un error al procesar su solicitud: {str(e)}')
             return redirect('login')
-    
+
     elif request.method == 'GET':
         return render(request, 'login.html')
-    
+
     else:
         messages.error(request, 'Método no permitido')
         return redirect('login')
@@ -97,14 +105,7 @@ def contact(request): #Vista Contacto
     return render(request, 'contacto.html')
 
 
-def perfilvista(request):
-    user = request.user  # Hace un request del usuario actual
-
-    if request.method == "POST":
-        user.delete()
-        return redirect('inicio')
-    else:
-        return render(request, 'perfil.html', {'user': user})   
+  
 
 def lista_productos(request):#Vista que llega a la pagina producto donde obtiene todos los productos en la variable productos
     productos = Producto.objects.all()
@@ -137,3 +138,26 @@ def delete_producto(request, producto_id):
         'delete_form': delete_form,
         'producto': producto
     })
+
+
+
+def carrito(request):
+    return render(request, 'carritox.html')
+
+@login_required
+def perfilvista(request):
+    user = request.user
+    if request.method == 'POST':
+        if 'update' in request.POST:
+            form = ActualizarNombreUsuarioForm(request.POST, instance=user)
+            if form.is_valid():
+                form.save()
+                return redirect('perfil')  # Redirige a la página de inicio 
+        elif 'delete' in request.POST:
+            user.delete()
+            return redirect('inicio')  # Redirige a la página de inicio
+    else:
+        form = ActualizarNombreUsuarioForm(instance=user)
+    
+    return render(request, 'perfil.html', {'form': form})
+

@@ -2,6 +2,7 @@ body {
   max-width: 100%; /* Ajusta según tus necesidades */
   margin: 0; /* Asegura que no haya márgenes no deseados */
   padding: 0; /* Asegura que no haya padding no deseado */
+  overflow-x: hidden; /* Oculta el desbordamiento horizontal */
 }
 
 .carousel-slide .carousel-item {

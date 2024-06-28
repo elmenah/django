@@ -26,30 +26,22 @@
         <div class="container-fluid justify-content-center">
             <h5 class="text-white text-center">
                 Envios gratis por compras sobre $45.000
-                <br> Bievenido {{ user.username }}
+                <br> Bienvenido {{ user.username }}
             </h5>
         </div>
-    
     </nav>
     {% else %}
     <nav class="navbar navbar-expand-lg navbar-light custom-bg"><!-- Nav de anuncio -->
         <div class="container-fluid justify-content-center">
             <h5 class="text-white text-center">
                 Envios gratis por compras sobre $45.000
-    
             </h5>
         </div>
-    
     </nav>
     {% endif %}
-            
-
     <nav class="navbar navbar-expand-lg navbar-light bg-light"><!-- Navbar principal -->
       <div class="container-fluid">
-        
         <a class="navbar-brand" href="{% url 'inicio' %}">La Terraza </a>
-        
-        
         <!-- Menu-->
         <button
           class="navbar-toggler"
@@ -86,7 +78,7 @@
         <!-- Icono Carrito -->
         {% if user.is_authenticated %}
         
-      <a href="/Carrito/carrito.html" style="color: black;"">
+      <a href="{% url 'carro' %}" style="color: black;"">
         <span class="me-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"

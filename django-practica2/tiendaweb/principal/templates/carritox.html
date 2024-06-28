@@ -1,0 +1,58 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - La Terraza Chile</title>
+    <!-- Cargar CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/carrito.css' %}">
+    <style>
+        /* Estilos adicionales  */
+        .card-body h2  {
+           color: black;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar y cabecera -->
+    {% include "navbarplantilla.html" %}
+
+    <!-- Contenido principal -->
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card bg-light">
+                    <div class="card-body">
+                        <h2 class="card-title">Carrito de Compras</h2>
+                        <hr>
+                        <div id="lista-productos">
+                            <!-- Aquí se mostrarán los productos del carrito -->
+                        </div>
+                        <div id="resumen-carrito" class="mt-3">
+                            <!-- Aquí se mostrará el resumen del carrito -->
+                        </div>
+                        <div class="text-end mt-3">
+                            <button class="btn btn-primary">Pagar</button>
+                            <button class="btn btn-secondary" onclick="vaciarCarrito()">Vaciar Carrito</button>
+                            <!-- Botón para vaciar el carrito -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    {% include "footer.html" %}
+
+    <!-- Scripts de Bootstrap y otros -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+    <script src="{% static 'js/productos.js' %}"></script>
+</body>
+</html>

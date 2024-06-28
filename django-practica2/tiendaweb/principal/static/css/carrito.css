@@ -1,0 +1,7 @@
+.producto{color: black;} /* Color para resumen productos */
+.mt-3{color: black;}/* Color para resumen carrito */
+.card {
+    margin-bottom: 20%;
+    margin-top: 15%;
+    align-items: center;
+}
