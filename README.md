@@ -4,6 +4,6 @@
 
 -Actualizar stock de producto cuando compre
 
--Crear local Storage y/o modificarlo
+-Crear local Storage y/o modificarlo (Hecho)
 
 -Que se cree un pedido con las variables guardadas en local Storage
