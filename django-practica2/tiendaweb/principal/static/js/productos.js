@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function () {
     botonesComprar.forEach(boton => {
         boton.addEventListener('click', function () {
             const id = this.getAttribute('data-id');
-            const nombre = this.getAttribute('data-nombre');
+            const nombre = this.getAttribute('data-nombre');  
             const precio = this.getAttribute('data-precio');
             const cantidad = document.querySelector('#cantidad' + id).value;
 
@@ -46,6 +46,8 @@ function mostrarProductosCarrito() {
     document.getElementById('lista-productos').innerHTML = listaProductosHTML;
     mostrarResumenCarrito(listaProductos);
 }
+
+
 
 function mostrarResumenCarrito(productos) {
     let totalProductos = 0;

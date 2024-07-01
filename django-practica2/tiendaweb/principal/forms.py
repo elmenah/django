@@ -14,4 +14,4 @@ class DeleteProductoForm(forms.Form):
 class ActualizarNombreUsuarioForm(forms.ModelForm):
     class Meta:
         model = Cliente
-        fields = ['username']
+        fields = ['email']

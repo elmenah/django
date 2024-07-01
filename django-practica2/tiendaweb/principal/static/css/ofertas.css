@@ -1,0 +1,201 @@
+body {
+    
+    
+    padding: 0 0px; /* Añade un espacio a los lados del contenido */
+}
+.custom-bg{
+	background: linear-gradient(to right,rgba(0, 71, 255, 1),rgba(99, 32, 32, 1));
+}
+
+/* Banner 1 */
+.imagen0 img{
+    width: 100%;
+    padding-bottom: 10px;
+    
+}
+#containergrande{
+    background-color: black;
+}
+.col-6 img{
+    width: 100%;
+    
+}
+#row2img{
+    background-color: black;
+}
+
+/* Footer */
+.footer{
+	background-color: #F5F5F5;
+    padding: 70px 0;
+	
+}
+.footer a {
+    text-decoration: none; /* Elimina la línea subrayada */
+	color: #000;
+	transition: color 0.3s ease; /* Agrega una transición suave al cambio de color */
+}
+.footer a:hover {
+    color: blue; /* Cambia el color del texto al pasar el cursor por encima */
+}
+.icon-negro {
+    color: #000; /* Color negro */
+}
+
+.footer-col{
+   width: 25%;
+   padding: 0 15px;
+}
+.footer-col h4{
+	font-size: 18px;
+	color: #000000; /* Color del nombre de la columna*/
+	text-transform: capitalize;
+	margin-bottom: 35px;
+	font-weight: 500;
+	position: relative;
+}
+.footer-col h4::before{
+	content: '';
+	position: absolute;
+	left:0;
+	bottom: -10px;
+	background-color: #e91e63; /* Color de la linea del nombre de Columna */ 
+	height: 2px;
+	box-sizing: border-box;
+	width: 50px;
+}
+.footer-col ul li:not(:last-child){
+	margin-bottom: 10px;
+}
+.footer-col ul li a{
+	font-size: 16px;
+	text-transform: capitalize;
+	color: #ffffff;
+	text-decoration: none;
+	font-weight: 300;
+	color: #0c0a0a; /* Color de la fila */ 
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #bbbbbb; /* Color del hover de fila */
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	height: 40px;
+	width: 40px;
+	background-color: rgba(255,255,255,0.2);
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 50%;
+	color: #ffffff;
+	transition: all 0.5s ease;
+}
+.footer-col .social-links a:hover{
+	color: #24262b;
+	background-color: #ffffff;
+}
+
+/* Resetear estilos predeterminados */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/*Estilo para productos*/
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+	
+}
+
+.producto {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+	height: 400px;
+	
+}
+
+.producto img {
+    width: 100%;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.producto h3 {
+    margin-bottom: 5px;
+}
+
+.producto p {
+    margin-bottom: 5px;
+}
+
+.producto input[type="number"] {
+    width: 60px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.producto button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+/* Estilos para los filtros */
+.filtros {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+	
+}
+
+.filtro {
+    margin-bottom: 15px;
+	
+}
+
+.filtro label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filtro select {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+	
+}
+
+.filtro input[type="radio"] {
+    display: inline-block;
+    margin-right: 5px;
+	
+}
+
+.filtro div {
+    margin-bottom: 5px;
+}
+
+.filtro div:last-child {
+    margin-bottom: 0;
+}

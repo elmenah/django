@@ -12,9 +12,9 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProductoForm,DeleteProductoForm, ActualizarNombreUsuarioForm
 
 
-# Create your views here.
 
-def home(request):
+
+def home(request): #Vista Home
     return render(request, 'home.html')
 
 
@@ -112,7 +112,7 @@ def lista_productos(request):#Vista que llega a la pagina producto donde obtiene
     return render(request, 'producto.html', {'productos': productos})
 
 
-def add_producto(request):
+def add_producto(request):   # Vista para agregar un producto 
     if request.method == "POST":
         form = ProductoForm(request.POST, request.FILES)#La vista add producto va a mostrar el formulario ProductoForm
         if form.is_valid():
@@ -123,7 +123,7 @@ def add_producto(request):
     
     return render(request, 'add_producto.html', {'form': form})
 
-def delete_producto(request, producto_id):
+def delete_producto(request, producto_id): # Vista para borrar un producto por ID
     producto = get_object_or_404(Producto, id=producto_id)
     
     if request.method == "POST":
@@ -141,19 +141,19 @@ def delete_producto(request, producto_id):
 
 
 
-def carrito(request):
+def carrito(request): # Renderiza el template carritox
     return render(request, 'carritox.html')
 
-@login_required
+@login_required # Requiere estar logeado
 def perfilvista(request):
     user = request.user
     if request.method == 'POST':
-        if 'update' in request.POST:
+        if 'update' in request.POST: # Si el metodo o name es update al hacer post
             form = ActualizarNombreUsuarioForm(request.POST, instance=user)
             if form.is_valid():
                 form.save()
                 return redirect('perfil')  # Redirige a la página de inicio 
-        elif 'delete' in request.POST:
+        elif 'delete' in request.POST: # Si el metodo o name es delete al hacer post
             user.delete()
             return redirect('inicio')  # Redirige a la página de inicio
     else:
@@ -161,3 +161,8 @@ def perfilvista(request):
     
     return render(request, 'perfil.html', {'form': form})
 
+def tyc(request):
+    return render(request, 'T&C.html')
+
+def ofertas(request):
+    return render(request, 'ofertas.html')
