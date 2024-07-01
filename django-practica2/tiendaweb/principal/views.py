@@ -39,6 +39,10 @@ def registro(request):
                 return render(request, 'registro.html')
 
             
+              # Verificar si el usuario ya existe
+            if Cliente.objects.filter(username=usuario).exists():
+                messages.error(request, 'El nombre de usuario ya existe. Elija otro.')
+                return render(request, 'registro.html')
             
             if password1 == password2 :
                 if fechanacimiento < fecha_mayor_edad:
@@ -80,7 +84,7 @@ def inicio_sesion(request):
             cliente_autenticado = authenticate(request, username=usuario, password=contraseña)
             if cliente_autenticado is not None:
                 login(request, cliente_autenticado)
-                messages.success(request, 'Sesión iniciada correctamente')
+                
                 return redirect('inicio')
             else:
                 messages.error(request, 'Usuario o contraseña inválidos')
@@ -152,9 +156,11 @@ def perfilvista(request):
             form = ActualizarNombreUsuarioForm(request.POST, instance=user)
             if form.is_valid():
                 form.save()
+                messages.success(request, 'Correo modificado correctamente')
                 return redirect('perfil')  # Redirige a la página de inicio 
         elif 'delete' in request.POST: # Si el metodo o name es delete al hacer post
             user.delete()
+            messages.success(request, 'Cuenta eliminada correctamente')
             return redirect('inicio')  # Redirige a la página de inicio
     else:
         form = ActualizarNombreUsuarioForm(instance=user)
