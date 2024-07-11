@@ -3,16 +3,41 @@ from django.contrib.auth.models import User
 from django.db import IntegrityError
 from django.contrib.auth import authenticate
 from django.contrib.auth import login,logout
-from django.http import HttpResponse
+from django.http import HttpResponse,JsonResponse
 from django.contrib import messages
+from django.views.decorators.csrf import csrf_exempt
 from .models import Cliente,Producto
 from datetime import datetime,date,timedelta
 from django.contrib.auth.decorators import login_required
+import json
 
 from .forms import ProductoForm,DeleteProductoForm, ActualizarNombreUsuarioForm
 
 
 
+@csrf_exempt
+def actualizar_stock(request):
+    if request.method == 'POST':
+        data = json.loads(request.body)
+        productos = data.get('productos', [])
+
+        for item in productos:
+            producto_id = item['id']
+            cantidad = int(item['cantidad'])
+
+            try:
+                producto = Producto.objects.get(id=producto_id)
+
+                if producto.stock >= cantidad:
+                    producto.stock -= cantidad
+                    producto.save()
+                else:
+                    return JsonResponse({'success': False, 'message': f'Stock insuficiente para {producto.nombre}'})
+            except Producto.DoesNotExist:
+                return JsonResponse({'success': False, 'message': 'Producto no encontrado'})
+
+        return JsonResponse({'success': True})
+    return JsonResponse({'success': False, 'message': 'Método no permitido'})
 
 def home(request): #Vista Home
     return render(request, 'home.html')

@@ -1,4 +1,5 @@
 {% load static %}
+{% csrf_token %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +36,7 @@
                             <!-- Aquí se mostrará el resumen del carrito -->
                         </div>
                         <div class="text-end mt-3">
-                            <button class="btn btn-primary">Pagar</button>
+                            <button class="btn btn-primary" >Pagar</button>
                             <button class="btn btn-secondary" onclick="vaciarCarrito()">Vaciar Carrito</button>
                             
                         </div>

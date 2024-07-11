@@ -13,7 +13,8 @@ path('perfil/',views.perfilvista, name='perfil'),
 path('productos/', views.lista_productos, name='lista_productos'),
 path('add_producto/', views.add_producto, name='add_producto'),
 path('carrito/', views.carrito, name='carro'),
-path('delete_producto/<int:producto_id>/', views.delete_producto, name='delete_producto')
+path('delete_producto/<int:producto_id>/', views.delete_producto, name='delete_producto'),
+ path('actualizar_stock/', views.actualizar_stock, name='actualizar_stock')
 
 
 ]
