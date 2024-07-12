@@ -142,7 +142,7 @@ def lista_productos(request):#Vista que llega a la pagina producto donde obtiene
     productos = Producto.objects.all()
     return render(request, 'producto.html', {'productos': productos})
 
-
+@user_passes_test(is_superuser)
 def add_producto(request):   # Vista para agregar un producto 
     if request.method == "POST":
         form = ProductoForm(request.POST, request.FILES)#La vista add producto va a mostrar el formulario ProductoForm
