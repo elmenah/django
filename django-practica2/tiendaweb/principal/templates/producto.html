@@ -20,14 +20,44 @@
             <div class="col-md-3">
                 <div class="filtros">
                     <h2>Filtrar</h2>
-                    <!-- Agregar filtro con JS -->
+                    
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Buscar productos..." id="barraBusqueda" />
+                    </div>
+                    <label for="tipo">Tipo de Licor:</label>
+              <select name="tipo" id="tipo">
+                <option value="">Todos</option>
+                <option value="whisky">Whisky</option>
+                <option value="ron">Ron</option>
+                <option value="vodka">Vodka</option>
+                
+              </select>
+              <div class="filtro">
+                <label>Retiro:</label>
+                <div>
+                  <label for="local"
+                    >Local
+                    <input type="radio" id="local" name="retiro" value="local"
+                  /></label>
                 </div>
+                <div>
+                  <label for="entrega"
+                    >Entrega
+                    <input
+                      type="radio"
+                      id="entrega"
+                      name="retiro"
+                      value="entrega"
+                  /></label>
+                </div>
+              </div>
+                </div>  
             </div>
 
             <div class="col-md-9">
                 <div class="row">
                     {% for producto in productos %}
-                        <div class="col-md-4" >
+                        <div class="col-md-4 producto-item" >
                             <div class="producto" >
                                 {% if producto.imagen %}
                                     <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" />
@@ -57,6 +87,20 @@
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
     <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
     <script src="{% static 'js/productos.js' %}"></script>
-   
+    <script>
+        $(document).ready(function() {
+            $('#barraBusqueda').on('input', function() {
+                var query = $(this).val().toLowerCase();
+                $('.producto-item').each(function() {
+                    var nombreProducto = $(this).find('h3').text().toLowerCase();
+                    if (nombreProducto.includes(query)) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

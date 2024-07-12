@@ -8,12 +8,14 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_exempt
 from .models import Cliente,Producto
 from datetime import datetime,date,timedelta
-from django.contrib.auth.decorators import login_required
+from django.contrib.auth.decorators import login_required,user_passes_test
 import json
 
 from .forms import ProductoForm,DeleteProductoForm, ActualizarNombreUsuarioForm
 
-
+# Función para verificar si el usuario es superusuario
+def is_superuser(user):
+    return user.is_superuser
 
 @csrf_exempt
 def actualizar_stock(request):
@@ -152,6 +154,7 @@ def add_producto(request):   # Vista para agregar un producto
     
     return render(request, 'add_producto.html', {'form': form})
 
+@user_passes_test(is_superuser)
 def delete_producto(request, producto_id): # Vista para borrar un producto por ID
     producto = get_object_or_404(Producto, id=producto_id)
     
